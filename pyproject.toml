@@ -17,4 +17,4 @@ package-dir = {"" = "src"}
 include-dirs = ["vendor/", "vendor/supercollider/common/", "vendor/TLSF-2.4.6/src/"]
 language = "c++"
 name = "supriya_shm._shm"
-sources = ["src/supriya_shm/_shm.cpp"]
+sources = ["src/supriya_shm/_shm.pyx"]

@@ -1,13 +1,12 @@
 # cython: language_level=3
 # distutils: language=c++
 
-from .entities import Bus, BusGroup
-from .shm cimport server_shared_memory_client
+from ._shm cimport server_shared_memory_client
 
 
 cdef class ServerSHM:
     """
-    Server shared memory interface.
+    A SuperCollider server shared memory interface.
     """
     cdef server_shared_memory_client* client
     cdef unsigned int bus_count
@@ -19,11 +18,7 @@ cdef class ServerSHM:
     def __dealloc__(self) -> None:
         del self.client
 
-    def __getitem__(self, item: Bus | BusGroup | int | slice) -> float | list[float]:
-        if isinstance(item, Bus):
-            item = int(item)
-        elif isinstance(item, BusGroup):
-            item = slice(int(item), int(item) + len(item))
+    def __getitem__(self, item: int | slice) -> float | list[float]:
         if isinstance(item, int):
             if item < 0 or item >= self.bus_count:
                 raise ValueError("index out of bounds")
@@ -35,11 +30,7 @@ cdef class ServerSHM:
             return result
         raise ValueError(item)
 
-    def __setitem__(self, item: Bus | BusGroup | int | slice, value: float | list[float]) -> None:
-        if isinstance(item, BusGroup):
-            item = slice(int(item), int(item) + len(item), 1)
-        elif isinstance(item, Bus):
-            item = int(item)
+    def __setitem__(self, item: int | slice, value: float | list[float]) -> None:
         if isinstance(item, int):
             if item < 0 or item >= self.bus_count:
                 raise ValueError("index out of bounds")
