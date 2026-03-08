@@ -1,0 +1,17 @@
+[project]
+name = "supriya-shm"
+version = "0.1.0"
+description = "SuperCollider Shared Memory Bindings"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+ext-modules = [
+  { name = "supriya_shm._shm", include-dirs = ["vendor/", "vendor/supercollider/common", "vendor/TLSF-2.4.6/src/"], sources = ["src/supriya_shm/_shm.cpp"] }
+]
+package-dir = {"" = "src"}
