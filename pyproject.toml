@@ -7,11 +7,14 @@ requires-python = ">=3.10"
 dependencies = []
 
 [build-system]
-requires = ["setuptools"]
+requires = ["cython", "setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-ext-modules = [
-  { name = "supriya_shm._shm", include-dirs = ["vendor/", "vendor/supercollider/common", "vendor/TLSF-2.4.6/src/"], sources = ["src/supriya_shm/_shm.cpp"] }
-]
 package-dir = {"" = "src"}
+
+[[tool.setuptools.ext-modules]]
+include-dirs = ["vendor/", "vendor/supercollider/common/", "vendor/TLSF-2.4.6/src/"]
+language = "c++"
+name = "supriya_shm._shm"
+sources = ["src/supriya_shm/_shm.cpp"]
