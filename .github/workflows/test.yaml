@@ -21,7 +21,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v6
-    - uses: astral-sh/setup-uv@7
+    - uses: astral-sh/setup-uv@v7
       with:
         python-version: "3.14"
     - name: Install
@@ -49,8 +49,8 @@ jobs:
         - {os: ubuntu-24.04,     arch: auto,           build: "cp3{10,11,12,13,14}-musllinux*"}
         - {os: ubuntu-24.04-arm, arch: auto,           build: "cp3{10,11,12,13,14}-manylinux*"}
         - {os: ubuntu-24.04-arm, arch: auto,           build: "cp3{10,11,12,13,14}-musllinux*"}
-        - {os: windows-latest,   arch: amd64,          build: "cp3{10,11,12,13,14}-*"}
-        - {os: windows-latest,   arch: arm64,          build: "cp3{10,11,12,13,14}-*"}
+        - {os: windows-latest,   arch: AMD64,          build: "cp3{10,11,12,13,14}-*"}
+        - {os: windows-latest,   arch: ARM64,          build: "cp3{10,11,12,13,14}-*"}
     steps:
     - uses: actions/checkout@v6
     - name: Build wheels
