@@ -8,4 +8,3 @@ def test_ServerSHM() -> None:
         ServerSHM(57110, 1024)
     except RuntimeError:
         traceback.print_exc()
-
