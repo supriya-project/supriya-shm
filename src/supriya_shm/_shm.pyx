@@ -7,6 +7,12 @@ from ._shm cimport server_shared_memory_client
 cdef class ServerSHM:
     """
     A SuperCollider server shared memory interface.
+
+    ::
+
+        >>> from supriya_shm import ServerSHM
+        >>> shm = ServerSHM(57110, 1024)
+
     """
     cdef server_shared_memory_client* client
     cdef unsigned int bus_count

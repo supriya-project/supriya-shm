@@ -1,3 +1,7 @@
+[build-system]
+requires = ["cython", "setuptools"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "supriya-shm"
 version = "0.1.0"
@@ -5,10 +9,6 @@ description = "SuperCollider Shared Memory Bindings"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
-
-[build-system]
-requires = ["cython", "setuptools"]
-build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -18,3 +18,9 @@ include-dirs = ["vendor/", "vendor/supercollider/common/", "vendor/TLSF-2.4.6/sr
 language = "c++"
 name = "supriya_shm._shm"
 sources = ["src/supriya_shm/_shm.pyx"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.5",
+    "ty>=0.0.21",
+]
