@@ -67,6 +67,12 @@ jobs:
     - uses: astral-sh/setup-uv@v7
       with:
         python-version: "${{ matrix.python-version }}"
+    - uses: hendrikmuhs/ccache-action@v1.2
+      with:
+        key: ${{ runner.os }}
+        restore-keys: ${{ runner.os }}
+    - name: Install SuperCollider
+      uses: supriya-project/setup-supercollider@main
     - name: Install supriya-shm
       run: uv sync
     - name: Test
