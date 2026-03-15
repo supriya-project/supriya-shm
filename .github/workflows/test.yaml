@@ -74,7 +74,7 @@ jobs:
     - name: Install supriya-shm
       run: uv sync
     - name: Test
-      run: uv run pytest
+      run: uv run pytest -v
     strategy:
       matrix:
         os: [macos-15, ubuntu-latest, windows-latest]
