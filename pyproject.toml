@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "supriya-shm"
-version = "0.1.0"
+version = "26.3b0"
 description = "SuperCollider Shared Memory Bindings"
 readme = "README.md"
 requires-python = ">=3.10"
