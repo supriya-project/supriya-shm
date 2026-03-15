@@ -50,7 +50,7 @@ jobs:
         path: dist/*.tar.gz
 
   upload-to-testpypi:
-    name: Publish release to PyPI
+    name: Publish release to Test PyPI
     environment: testpypi
     needs: [build-wheels, build-sdist]
     permissions:
