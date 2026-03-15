@@ -49,10 +49,27 @@ jobs:
         name: dist-sdist
         path: dist/*.tar.gz
 
+  upload-to-testpypi:
+    name: Publish release to PyPI
+    environment: testpypi
+    needs: [build-wheels, build-sdist]
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v7
+      with:
+        merge-multiple: true
+        path: dist
+        pattern: dist-*
+    - uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
+
   upload-to-pypi:
     name: Publish release to PyPI
-    environment: release
-    needs: [build-wheels, build-sdist]
+    environment: pypi
+    needs: [build-wheels, build-sdist, upload-to-testpypi]
     permissions:
       id-token: write
     runs-on: ubuntu-latest
