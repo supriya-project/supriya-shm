@@ -2,6 +2,7 @@ import contextlib
 import subprocess
 import socket
 import time
+from typing import Generator
 
 import pytest
 
@@ -17,7 +18,7 @@ def port() -> int:
 
 
 @pytest.fixture(params=["scsynth", "supernova"])
-def server(request, port: int) -> int:
+def server(request, port: int) -> Generator[int, None, None]:
     process = subprocess.Popen([request.param, "-u", str(port), "-c", "1024"])
     time.sleep(1)
     yield port
