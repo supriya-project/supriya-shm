@@ -22,6 +22,7 @@
 // BOOST_GPU_ENABLED : Flag a function or a method as being enabled on the host and device
 #define BOOST_GPU_ENABLED __host__ __device__
 
+#if !defined(__clang__) || defined(__NVCC__)
 // A bug in version 7.0 of CUDA prevents use of variadic templates in some occasions
 // https://svn.boost.org/trac/boost/ticket/11897
 // This is fixed in 7.5. As the following version macro was introduced in 7.5 an existance
@@ -38,6 +39,8 @@
 #  define BOOST_NO_CXX11_CONSTEXPR
 #endif
 
+#endif
+
 #ifdef __CUDACC__
 //
 // When compiing .cu files, there's a bunch of stuff that doesn't work with msvc:
@@ -52,6 +55,10 @@
 //
 #if (BOOST_CUDA_VERSION >= 8000000) && (BOOST_CUDA_VERSION < 8010000)
 #  define BOOST_NO_CXX11_NOEXCEPT
+#endif
+
+#if !defined(__cpp_nontype_template_parameter_auto) || (__cpp_nontype_template_parameter_auto < 201606)
+#  define BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS
 #endif
 
 #endif
