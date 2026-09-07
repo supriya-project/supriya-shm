@@ -1,8 +1,8 @@
 import contextlib
-import subprocess
 import socket
+import subprocess
 import time
-from typing import Generator
+from collections.abc import Generator
 
 import pytest
 

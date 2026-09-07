@@ -42,19 +42,19 @@
 	  with mmap or sbrk.
 	* Removed the get_used_size counting.The same functionality can be
 	implemented outside the TLSF code.
-	
-  -v2.3.2 (Sep 27 2007) 
+
+  -v2.3.2 (Sep 27 2007)
   	* Minor cosmetic code improvements.
 
   -v2.3.1 (Jul 30 2007)
         * Fixed some minor bugs in the version 2.3. Herman ten Brugge
 	     <hermantenbrugge@home.nl>
-	
-  -v2.3 (Jul 28 2007) Released a new version with all the contributions 
-        received from Herman ten Brugge <hermantenbrugge@home.nl> 
+
+  -v2.3 (Jul 28 2007) Released a new version with all the contributions
+        received from Herman ten Brugge <hermantenbrugge@home.nl>
         (This is his summary of changes in the TLSF's code):
         * Add 64 bit support. It now runs on x86_64 and solaris64.
-        * I also tested this on vxworks/32 and solaris/32 and i386/32 
+        * I also tested this on vxworks/32 and solaris/32 and i386/32
           processors.
         * Remove assembly code. I could not measure any performance difference
           on my core2 processor. This also makes the code more portable.
@@ -96,7 +96,7 @@
 	   always allocate the most recently released. In this version of
 	   TLSF, we have implemented a FIFO Good-Fit. However,
 	   fragmentation doesn't seems to be altered so is it worth it?.
-	
+
   - v2.1:  Realloc and calloc included again in TLSF 2.0.
 
   - v2.0:  In this version,  TLSF has been programmed  from scratch.

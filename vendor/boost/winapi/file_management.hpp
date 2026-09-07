@@ -112,7 +112,7 @@ LockFileEx(
 #if BOOST_USE_WINAPI_VERSION >= BOOST_WINAPI_VERSION_WINXP
 BOOST_WINAPI_IMPORT boost::winapi::BOOL_ BOOST_WINAPI_WINAPI_CC
 SetFileValidData(
-    boost::winapi::HANDLE_ hFile, 
+    boost::winapi::HANDLE_ hFile,
     boost::winapi::LONGLONG_ ValidDataLength);
 #endif
 

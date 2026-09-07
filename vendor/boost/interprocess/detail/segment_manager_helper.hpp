@@ -515,4 +515,3 @@ struct dummy
 #include <boost/interprocess/detail/config_end.hpp>
 
 #endif //#ifndef BOOST_INTERPROCESS_SEGMENT_MANAGER_BASE_HPP
-

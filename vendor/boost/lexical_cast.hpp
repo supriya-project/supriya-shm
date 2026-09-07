@@ -31,7 +31,7 @@
 #include <boost/lexical_cast/bad_lexical_cast.hpp>
 #include <boost/lexical_cast/try_lexical_convert.hpp>
 
-namespace boost 
+namespace boost
 {
     template <typename Target, typename Source>
     inline Target lexical_cast(const Source &arg)
@@ -102,4 +102,3 @@ namespace boost
 #undef BOOST_LCAST_NO_WCHAR_T
 
 #endif // BOOST_LEXICAL_CAST_INCLUDED
-

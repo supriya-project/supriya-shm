@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "tlsf.h"
 
-int main(void){ 
+int main(void){
   int *ptr[100];
   int i;
 
@@ -19,6 +19,3 @@ int main(void){
 
   exit(0);
 }
-
-    
-	

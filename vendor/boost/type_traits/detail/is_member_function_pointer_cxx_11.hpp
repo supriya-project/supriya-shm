@@ -1,6 +1,6 @@
 
 //  (C) Copyright Dave Abrahams, Steve Cleary, Beman Dawes, Howard
-//  Hinnant & John Maddock 2000.  
+//  Hinnant & John Maddock 2000.
 //  Use, modification and distribution are subject to the Boost Software License,
 //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
 //  http://www.boost.org/LICENSE_1_0.txt).
@@ -32,7 +32,7 @@ namespace boost {
    struct is_member_function_pointer<T const volatile> : public is_member_function_pointer<T> {};
 
 #if defined(BOOST_TT_NO_DEDUCED_NOEXCEPT_PARAM)
-   // MSVC can't handle noexcept(b) as a deduced template parameter 
+   // MSVC can't handle noexcept(b) as a deduced template parameter
    // so we will have to write everything out :(
 #define BOOST_TT_NOEXCEPT_PARAM
 #define BOOST_TT_NOEXCEPT_DECL
@@ -227,7 +227,7 @@ namespace boost {
    template <class Ret, class C, class...Args BOOST_TT_NOEXCEPT_PARAM>
    struct is_member_function_pointer<Ret (__vectorcall C::*)(Args...)const &BOOST_TT_NOEXCEPT_DECL> : public true_type {};
 #endif
- 
+
    // volatile:
 #ifdef __CLR_VER
    template <class Ret, class C, class...Args BOOST_TT_NOEXCEPT_PARAM>
@@ -327,7 +327,7 @@ namespace boost {
    template <class Ret, class C, class...Args BOOST_TT_NOEXCEPT_PARAM>
    struct is_member_function_pointer<Ret (__vectorcall C::*)(Args...)volatile &&BOOST_TT_NOEXCEPT_DECL> : public true_type {};
 #endif
- 
+
    // const volatile:
 #ifdef __CLR_VER
    template <class Ret, class C, class...Args BOOST_TT_NOEXCEPT_PARAM>

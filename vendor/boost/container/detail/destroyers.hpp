@@ -251,7 +251,7 @@ struct scoped_destructor_range
    typedef boost::container::allocator_traits<Allocator> AllocTraits;
    typedef typename AllocTraits::pointer    pointer;
    typedef typename AllocTraits::value_type value_type;
-   
+
    BOOST_CONTAINER_FORCEINLINE scoped_destructor_range(pointer p, pointer e, Allocator& a)
       : m_p(p), m_e(e), m_a(a)
    {}

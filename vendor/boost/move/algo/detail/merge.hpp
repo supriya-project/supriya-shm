@@ -603,7 +603,7 @@ void merge_bufferless_ONlogN_recursive
       }
       else if (size_type(len1 | len2) == 1u) {
          if (comp(*middle, *first))
-            adl_move_swap(*first, *middle);  
+            adl_move_swap(*first, *middle);
          return;
       }
       else if(size_type(len1+len2) < MergeBufferlessONLogNRotationThreshold){

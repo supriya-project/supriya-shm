@@ -59,7 +59,7 @@ class heap_sort_helper
             *(first + hole_index) = boost::move(*(first + parent));
             hole_index = parent;
             parent = (hole_index - 1) / 2;
-         }    
+         }
          *(first + hole_index) = boost::move(value);
       }
    }

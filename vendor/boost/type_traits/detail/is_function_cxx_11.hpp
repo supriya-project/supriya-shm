@@ -31,7 +31,7 @@ namespace boost {
 #else
 #define BOOST_TT_DEF_CALL
 #endif
-   
+
    template <class Ret, class...Args BOOST_TT_NOEXCEPT_PARAM>
    struct is_function<Ret BOOST_TT_DEF_CALL(Args...)BOOST_TT_NOEXCEPT_DECL> : public true_type {};
    template <class Ret, class ...Args BOOST_TT_NOEXCEPT_PARAM>
@@ -594,4 +594,3 @@ namespace boost {
 #undef BOOST_TT_DEF_CALL
 
 #endif // BOOST_TT_IS_FUNCTION_CXX_11_HPP_INCLUDED
-

@@ -69,7 +69,7 @@
 #  else
 #     pragma GCC system_header
 #  endif
-//When loading DLLs we have no option but reinterpret casting function types  
+//When loading DLLs we have no option but reinterpret casting function types
 #  if (BOOST_GCC >= 80000)
 #        pragma GCC diagnostic ignored "-Wcast-function-type"
 #  endif
@@ -80,13 +80,13 @@
 //#define BOOST_INTERPROCESS_BOOTSTAMP_IS_SESSION_MANAGER_BASED
 
 #ifdef BOOST_INTERPROCESS_BOOTSTAMP_IS_EVENTLOG_BASED
-#  define BOOST_INTERPROCESS_BOOTSTAMP_IS_EVENTLOG_BASED_VALUE 1 
+#  define BOOST_INTERPROCESS_BOOTSTAMP_IS_EVENTLOG_BASED_VALUE 1
 #else
 #  define BOOST_INTERPROCESS_BOOTSTAMP_IS_EVENTLOG_BASED_VALUE 0
 #endif
 
 #ifdef BOOST_INTERPROCESS_BOOTSTAMP_IS_SESSION_MANAGER_BASED
-#  define BOOST_INTERPROCESS_BOOTSTAMP_IS_SESSION_MANAGER_BASED_VALUE 1 
+#  define BOOST_INTERPROCESS_BOOTSTAMP_IS_SESSION_MANAGER_BASED_VALUE 1
 #else
 #  define BOOST_INTERPROCESS_BOOTSTAMP_IS_SESSION_MANAGER_BASED_VALUE 0
 #endif
@@ -299,7 +299,7 @@ enum section_information_class
 #include <boost/winapi/dll.hpp>
 #include <boost/winapi/basic_types.hpp>
 
-//This should go in winapi's basic_types.hpp 
+//This should go in winapi's basic_types.hpp
 namespace boost {
 namespace ipwinapiext {
 typedef boost::winapi::LONG_ LSTATUS;
@@ -343,7 +343,7 @@ BOOST_SYMBOL_IMPORT boost::winapi::HANDLE_ BOOST_WINAPI_WINAPI_CC OpenEventLogA(
 BOOST_SYMBOL_IMPORT boost::winapi::BOOL_   BOOST_WINAPI_WINAPI_CC CloseEventLog(boost::winapi::HANDLE_ hEventLog);
 BOOST_SYMBOL_IMPORT boost::winapi::BOOL_   BOOST_WINAPI_WINAPI_CC ReadEventLogA
    ( boost::winapi::HANDLE_ hEventLog, boost::winapi::DWORD_ dwReadFlags, boost::winapi::DWORD_ dwRecordOffset, void* lpBuffer
-   , boost::winapi::DWORD_ nNumberOfBytesToRead, boost::winapi::DWORD_ *pnBytesRead, boost::winapi::DWORD_ *pnMinNumberOfBytesNeeded); 
+   , boost::winapi::DWORD_ nNumberOfBytesToRead, boost::winapi::DWORD_ *pnBytesRead, boost::winapi::DWORD_ *pnMinNumberOfBytesNeeded);
 
 }  //extern "C" {
 

@@ -21,6 +21,7 @@ sources = ["src/supriya_shm/_shm.pyx"]
 
 [dependency-groups]
 dev = [
+    "pre-commit>=4.6.2",
     "pytest>=9.0.2",
     "ruff>=0.15.5",
     "ty>=0.0.21",

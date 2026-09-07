@@ -444,7 +444,7 @@ class splaytree_algorithms
    {
       splay_down(header, new_node, comp);
       return bstree_algo::insert_equal_lower_bound(header, new_node, comp);
-   }  
+   }
 
    //! @copydoc ::boost::intrusive::bstree_algorithms::insert_equal(node_ptr,node_ptr,node_ptr,NodePtrCompare)
    //! Additional note: the inserted node is splayed

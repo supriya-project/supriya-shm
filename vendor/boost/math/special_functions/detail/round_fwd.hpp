@@ -18,7 +18,7 @@
 namespace boost
 {
    namespace math
-   { 
+   {
 
    template <class T, class Policy>
    typename tools::promote_args<T>::type trunc(const T& v, const Policy& pol);
@@ -90,4 +90,3 @@ namespace boost
 
 
 #endif // BOOST_MATH_SPECIAL_ROUND_FWD_HPP
-

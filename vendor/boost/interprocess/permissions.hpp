@@ -129,4 +129,3 @@ class permissions
 #include <boost/interprocess/detail/config_end.hpp>
 
 #endif   //BOOST_INTERPROCESS_PERMISSIONS_HPP
-

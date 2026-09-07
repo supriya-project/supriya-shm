@@ -1058,7 +1058,7 @@ class segment_manager
    template<class CharT>
    void * priv_generic_named_construct
       (unsigned char type, const CharT *name, size_type num, bool try2find,
-      bool dothrow, ipcdetail::in_place_interface &table, 
+      bool dothrow, ipcdetail::in_place_interface &table,
       IndexType<ipcdetail::index_config<CharT, MemoryAlgorithm> > &index, ipcdetail::true_ is_intrusive)
    {
       (void)is_intrusive;
@@ -1183,7 +1183,7 @@ class segment_manager
    template<class CharT>
    void * priv_generic_named_construct
       (unsigned char type, const CharT *name, size_type num, bool try2find, bool dothrow,
-      ipcdetail::in_place_interface &table, 
+      ipcdetail::in_place_interface &table,
       IndexType<ipcdetail::index_config<CharT, MemoryAlgorithm> > &index, ipcdetail::false_ is_intrusive)
    {
       (void)is_intrusive;
@@ -1342,4 +1342,3 @@ class segment_manager
 #include <boost/interprocess/detail/config_end.hpp>
 
 #endif //#ifndef BOOST_INTERPROCESS_SEGMENT_MANAGER_HPP
-

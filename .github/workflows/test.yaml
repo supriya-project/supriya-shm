@@ -14,14 +14,20 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions: {}
+
 jobs:
 
   lint:
     name: Lint
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-    - uses: astral-sh/setup-uv@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: true
+    - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
       with:
         python-version: "3.14"
     - name: Install supriya-shm
@@ -35,42 +41,50 @@ jobs:
 
   package:
     name: Build wheels
+    permissions:
+      contents: read
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: true
     - name: Build wheels
       env:
         CIBW_ARCHS: ${{ matrix.arch }}
         CIBW_BUILD: ${{ matrix.build }}
-      uses: pypa/cibuildwheel@v3.4.0
+      uses: pypa/cibuildwheel@e090b81e30c4d855ea63bf4b6e59204c09a101ae # v4.2.1
     strategy:
       fail-fast: false
       matrix:
         include:
-        - {os: macos-15,         arch: "arm64,x86_64", build: "cp3{10,11,12,13,14}-*"}
+        - {os: macos-26,         arch: "arm64,x86_64", build: "cp3{10,11,12,13,14}-*"}
         - {os: ubuntu-24.04,     arch: auto,           build: "cp3{10,11,12,13,14}-manylinux*"}
         - {os: ubuntu-24.04,     arch: auto,           build: "cp3{10,11,12,13,14}-musllinux*"}
         - {os: ubuntu-24.04-arm, arch: auto,           build: "cp3{10,11,12,13,14}-manylinux*"}
         - {os: ubuntu-24.04-arm, arch: auto,           build: "cp3{10,11,12,13,14}-musllinux*"}
         - {os: windows-latest,   arch: AMD64,          build: "cp3{10,11,12,13,14}-*"}
-        - {os: windows-latest,   arch: ARM64,          build: "cp3{10,11,12,13,14}-*"}
+        - {os: windows-11-arm,   arch: ARM64,          build: "cp3{10,11,12,13,14}-*"}
 
   test:
     name: Test
+    permissions:
+      contents: read
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v6
-    - uses: astral-sh/setup-uv@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: true
+    - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
       with:
         python-version: "${{ matrix.python-version }}"
-    - uses: hendrikmuhs/ccache-action@v1.2
+    - uses: hendrikmuhs/ccache-action@f09c25b45002a07be2955cbe52e8cee55643f89d # v1.2.24
       with:
         key: ${{ runner.os }}
         restore-keys: ${{ runner.os }}
     - name: Setup audio
-      uses: supriya-project/setup-audio@main
+      uses: supriya-project/setup-audio@4bdbed1b96a1ff0c3346e74c746fa0d9a8fb387c # v1.0.0
     - name: Setup SuperCollider
-      uses: supriya-project/setup-supercollider@v1.1.1
+      uses: supriya-project/setup-supercollider@c30b38cc8fe88b5aa1e58b8da86b588d53af9d7d # v1.1.2
     - name: Install supriya-shm
       run: uv sync
     - name: Test
@@ -81,5 +95,5 @@ jobs:
         os: [ubuntu-latest]
         python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
         include:
-        - {os: macos-15,       python-version: "3.14"}
+        - {os: macos-26,       python-version: "3.14"}
         - {os: windows-latest, python-version: "3.14"}
