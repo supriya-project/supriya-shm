@@ -22,7 +22,7 @@
 // (http://comjnl.oxfordjournals.org/content/35/6/643.full.pdf).
 //
 // This implementation by Ion Gaztanaga uses previous ideas with additional changes:
-// 
+//
 // - Use of GCD-based rotation.
 // - Non power of two buffer-sizes.
 // - Tries to find sqrt(len)*2 unique keys, so that the merge sort
@@ -374,7 +374,7 @@ void merge_blocks_bufferless
 //
 // Tries to collect at most n_keys unique elements from [first, last),
 // in the begining of the range, and ordered according to comp
-// 
+//
 // Returns the number of collected keys
 template<class RandIt, class Compare, class XBuf>
 typename iterator_traits<RandIt>::size_type
@@ -561,7 +561,7 @@ Unsigned lblock_for_combine
    //If l_block != 0, then n_keys is already enough to merge all blocks in all
    //phases as we've found all needed keys for that buffer and length before.
    //If l_block == 0 then see if half keys can be used as buffer and the rest
-   //as keys guaranteeing that n_keys >= (2*l_merged)/lblock = 
+   //as keys guaranteeing that n_keys >= (2*l_merged)/lblock =
    if(!l_block){
       //If l_block == 0 then n_keys is power of two
       //(guaranteed by build_params(...))
@@ -758,7 +758,7 @@ OutputIt op_partial_merge_and_swap_impl
 {
    InputIt1 first1(r_first1);
    InputIt2 first2(r_first2);
-   
+
    if(first2 != last2 && last1 != first1) {
       InputIt2 first_min(r_first_min);
       bool non_empty_ranges = true;
@@ -942,7 +942,7 @@ OutputIt op_merge_blocks_with_irreg
    typedef typename iterator_traits<RandIt>::size_type size_type;
 
    for(; n_block_left; --n_block_left, ++key_first, min_check -= min_check != 0, max_check -= max_check != 0){
-      size_type next_key_idx = find_next_block(key_first, key_comp, first_reg, l_block, min_check, max_check, comp);  
+      size_type next_key_idx = find_next_block(key_first, key_comp, first_reg, l_block, min_check, max_check, comp);
       max_check = min_value<size_type>(max_value<size_type>(max_check, next_key_idx+size_type(2)), n_block_left);
       RandIt const last_reg  = first_reg + l_block;
       RandIt first_min = first_reg + next_key_idx*l_block;
@@ -1070,7 +1070,7 @@ void op_merge_blocks_left
             buf_end = buf_beg = first2 - (last1-first1);
             unmerged = op_partial_merge_and_save( first1, last1, first2, last2, first_min
                                                 , buf_beg, buf_end, comp, op, is_range1_A);
-         }  
+         }
          else{
             buf_beg = first1;
             buf_end = last1;
@@ -1448,7 +1448,7 @@ typename iterator_traits<RandIt>::size_type
 //////////////////////////////////
 //////////////////////////////////
 template<class RandIt, class Compare, class Op>
-typename iterator_traits<RandIt>::size_type  
+typename iterator_traits<RandIt>::size_type
    op_merge_left_step_multiple
       ( RandIt first_block
       , typename iterator_traits<RandIt>::size_type const elements_in_blocks

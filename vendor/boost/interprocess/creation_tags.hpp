@@ -82,4 +82,3 @@ enum create_enum_t
 #include <boost/interprocess/detail/config_end.hpp>
 
 #endif   //#ifndef BOOST_INTERPROCESS_CREATION_TAGS_HPP
-

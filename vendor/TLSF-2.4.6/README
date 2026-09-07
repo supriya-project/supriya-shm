@@ -44,7 +44,7 @@ Request and release functions
 
 As can be seen, there are two functions for each traditional memory
 allocation function (malloc, free, realloc, and calloc). One with the
-prefix "tlsf_" and the other with the suffix "_ex". 
+prefix "tlsf_" and the other with the suffix "_ex".
 
 The versions with the prefix "tlsf_" provides the expected behaviour,
 that is, allocating/releasing memory from the default memory pool. The
@@ -75,10 +75,10 @@ char memory_pool[1024*1024];
 	init_memory_pool(1024*1024, memory_pool);
 
 	...
-	
+
 	ptr1=malloc_ex(100, memory_pool);
 	ptr2=tlsf_malloc(100); // This function will use memory_pool
-	
+
         ...
 
         tlsf_free(ptr2);
@@ -106,14 +106,14 @@ char memory_pool2[1024*1024];
 	init_memory_pool(1024*1024, memory_pool);
 
 	...
-	
-	ptr[0]=malloc_ex(1024*256 memory_pool); 
-	ptr[1]=malloc_ex(1024*512, memory_pool); 
+
+	ptr[0]=malloc_ex(1024*256 memory_pool);
+	ptr[1]=malloc_ex(1024*512, memory_pool);
 	add_new_area(memory_pool2, 1024*1024, memory_pool);
 	// Now we have an extra free memory area of 1Mb
 	// The next malloc may not fail
-	ptr[2]=malloc_ex(1024*512, memory_pool); 
-	
+	ptr[2]=malloc_ex(1024*512, memory_pool);
+
         ...
 
 }
@@ -147,9 +147,9 @@ EXAMPLE OF USE (with MMAP/SBRK support enabled):
 
 {
 	...
-	
+
 	ptr2=tlsf_malloc(100); // This function will use memory_pool
-	
+
         ...
 
         tlsf_free(ptr2);
@@ -160,4 +160,4 @@ EXAMPLE OF USE (with MMAP/SBRK support enabled):
 
 This work has been supported by the followin projects:
 EUROPEAN: IST-2001-35102(OCERA) http://www.ocera.org.
-SPANISH: TIN2005-08665-C3-03 
+SPANISH: TIN2005-08665-C3-03

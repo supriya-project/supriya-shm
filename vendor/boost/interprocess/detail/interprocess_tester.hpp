@@ -36,4 +36,3 @@ class interprocess_tester
 }  //namespace boost{
 
 #endif   //#ifndef BOOST_INTERPROCESS_DETAIL_INTERPROCESS_TESTER_HPP
-

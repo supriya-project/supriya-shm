@@ -12,7 +12,7 @@ int
 main(void){
   int *ptr[100];
   int i, free_mem;
-  
+
   free_mem = init_memory_pool(POOL_SIZE, pool);
   printf("Total free memory= %d\n", free_mem);
   for (i=0; i< 100; i++)
@@ -22,11 +22,8 @@ main(void){
     }
   for (i=0; i< 100; i++)
     free_ex(ptr[i], pool);
- 
+
   destroy_memory_pool(pool);
   printf("Test OK\n");
   exit(0);
 }
-
-    
-	

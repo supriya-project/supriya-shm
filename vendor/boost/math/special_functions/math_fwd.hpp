@@ -271,7 +271,7 @@ namespace boost
       chebyshev_t(unsigned n, Real const & x, const Policy&);
    template<class Real>
    typename tools::promote_args<Real>::type chebyshev_t(unsigned n, Real const & x);
-   
+
    template <class Real, class Policy>
    typename tools::promote_args<Real>::type
       chebyshev_u(unsigned n, Real const & x, const Policy&);

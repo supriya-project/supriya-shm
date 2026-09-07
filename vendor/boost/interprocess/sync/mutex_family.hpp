@@ -56,5 +56,3 @@ struct null_mutex_family
 #include <boost/interprocess/detail/config_end.hpp>
 
 #endif   //#ifndef BOOST_INTERPROCESS_MUTEX_FAMILY_HPP
-
-
