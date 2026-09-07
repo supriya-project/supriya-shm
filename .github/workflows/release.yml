@@ -9,6 +9,8 @@ concurrency:
 env:
   GH_TOKEN: "${{ github.token }}"
 
+permissions: {}
+
 jobs:
   bump-version:
     name: Bump version
