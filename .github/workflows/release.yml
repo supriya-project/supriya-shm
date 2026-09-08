@@ -36,7 +36,7 @@ jobs:
         OLD_VERSION: ${{ steps.old-version.outputs.version }}
       id: new-version
       run: |
-        VERSION=$(uv run dev/bump-version.py "${OLD_VERSION}")
+        VERSION=$(uv --quiet run dev/bump-version.py "${OLD_VERSION}")
         echo version=${VERSION} >> "${GITHUB_OUTPUT}"
         echo "${VERSION}"
     - name: Push changes
