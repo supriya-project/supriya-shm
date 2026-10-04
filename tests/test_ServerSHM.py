@@ -1,7 +1,6 @@
 import contextlib
 import socket
 import subprocess
-import time
 from collections.abc import Generator
 
 import pytest
@@ -19,10 +18,18 @@ def port() -> int:
 
 @pytest.fixture(params=["scsynth", "supernova"])
 def server(request, port: int) -> Generator[int, None, None]:
-    process = subprocess.Popen([request.param, "-u", str(port), "-c", "1024"])
-    time.sleep(1)
-    yield port
-    process.kill()
+    with subprocess.Popen(
+        [request.param, "-u", str(port), "-c", "1024"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+    ) as process:
+        if process.stdout:
+            for line in process.stdout:
+                if line.startswith(("SuperCollider 3 server ready", "Supernova ready")):
+                    break
+        yield port
+        process.kill()
 
 
 def test_ServerSHM(server: int) -> None:
