@@ -60,14 +60,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - {os: macos-26,         arch: x86_64, build: "cp3{10,11,12,13,14}-*",          dist: macos-amd}
-        - {os: macos-26,         arch: arm64,  build: "cp3{10,11,12,13,14}-*",          dist: macos-arm}
-        - {os: ubuntu-24.04,     arch: auto,   build: "cp3{10,11,12,13,14}-manylinux*", dist: manylinux-amd}
-        - {os: ubuntu-24.04,     arch: auto,   build: "cp3{10,11,12,13,14}-musllinux*", dist: musllinux-amd}
-        - {os: ubuntu-24.04-arm, arch: auto,   build: "cp3{10,11,12,13,14}-manylinux*", dist: manylinux-arm}
-        - {os: ubuntu-24.04-arm, arch: auto,   build: "cp3{10,11,12,13,14}-musllinux*", dist: musllinux-arm}
-        - {os: windows-latest,   arch: AMD64,  build: "cp3{10,11,12,13,14}-*",          dist: windows-amd}
-        - {os: windows-11-arm,   arch: ARM64,  build: "cp3{10,11,12,13,14}-*",          dist: windows-arm}
+        - {os: macos-26,         arch: x86_64, build: "cp3{11,12,13,14}-*",          dist: macos-amd}
+        - {os: macos-26,         arch: arm64,  build: "cp3{11,12,13,14}-*",          dist: macos-arm}
+        - {os: ubuntu-24.04,     arch: auto,   build: "cp3{11,12,13,14}-manylinux*", dist: manylinux-amd}
+        - {os: ubuntu-24.04,     arch: auto,   build: "cp3{11,12,13,14}-musllinux*", dist: musllinux-amd}
+        - {os: ubuntu-24.04-arm, arch: auto,   build: "cp3{11,12,13,14}-manylinux*", dist: manylinux-arm}
+        - {os: ubuntu-24.04-arm, arch: auto,   build: "cp3{11,12,13,14}-musllinux*", dist: musllinux-arm}
+        - {os: windows-latest,   arch: AMD64,  build: "cp3{11,12,13,14}-*",          dist: windows-amd}
+        - {os: windows-11-arm,   arch: ARM64,  build: "cp3{11,12,13,14}-*",          dist: windows-arm}
 
   test:
     name: Test
@@ -97,7 +97,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
         include:
         - {os: macos-26-intel,   python-version: "3.14"}
         - {os: macos-26,         python-version: "3.14"}

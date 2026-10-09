@@ -7,7 +7,7 @@ name = "supriya-shm"
 version = "26.10b0"
 description = "SuperCollider Shared Memory Bindings"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = []
 
 [tool.setuptools]
