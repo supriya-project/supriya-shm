@@ -29,7 +29,7 @@ jobs:
         persist-credentials: true
     - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
       with:
-        python-version: "3.14"
+        python-version: "3.15"
     - name: Install supriya-shm
       run: uv sync
     - name: Run prek
@@ -60,14 +60,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - {os: macos-26,         arch: x86_64, build: "cp3{11,12,13,14}-*",          dist: macos-amd}
-        - {os: macos-26,         arch: arm64,  build: "cp3{11,12,13,14}-*",          dist: macos-arm}
-        - {os: ubuntu-24.04,     arch: auto,   build: "cp3{11,12,13,14}-manylinux*", dist: manylinux-amd}
-        - {os: ubuntu-24.04,     arch: auto,   build: "cp3{11,12,13,14}-musllinux*", dist: musllinux-amd}
-        - {os: ubuntu-24.04-arm, arch: auto,   build: "cp3{11,12,13,14}-manylinux*", dist: manylinux-arm}
-        - {os: ubuntu-24.04-arm, arch: auto,   build: "cp3{11,12,13,14}-musllinux*", dist: musllinux-arm}
-        - {os: windows-latest,   arch: AMD64,  build: "cp3{11,12,13,14}-*",          dist: windows-amd}
-        - {os: windows-11-arm,   arch: ARM64,  build: "cp3{11,12,13,14}-*",          dist: windows-arm}
+        - {os: macos-26,         arch: x86_64, build: "cp3{11,12,13,14,15}-*",          dist: macos-amd}
+        - {os: macos-26,         arch: arm64,  build: "cp3{11,12,13,14,15}-*",          dist: macos-arm}
+        - {os: ubuntu-24.04,     arch: auto,   build: "cp3{11,12,13,14,15}-manylinux*", dist: manylinux-amd}
+        - {os: ubuntu-24.04,     arch: auto,   build: "cp3{11,12,13,14,15}-musllinux*", dist: musllinux-amd}
+        - {os: ubuntu-24.04-arm, arch: auto,   build: "cp3{11,12,13,14,15}-manylinux*", dist: manylinux-arm}
+        - {os: ubuntu-24.04-arm, arch: auto,   build: "cp3{11,12,13,14,15}-musllinux*", dist: musllinux-arm}
+        - {os: windows-latest,   arch: AMD64,  build: "cp3{11,12,13,14,15}-*",          dist: windows-amd}
+        - {os: windows-11-arm,   arch: ARM64,  build: "cp3{11,12,13,14,15}-*",          dist: windows-arm}
 
   test:
     name: Test
@@ -97,13 +97,13 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        python-version: ["3.11", "3.12", "3.13", "3.14"]
+        python-version: ["3.11", "3.12", "3.13", "3.14", "3.15"]
         include:
-        - {os: macos-26-intel,   python-version: "3.14"}
-        - {os: macos-26,         python-version: "3.14"}
-        - {os: ubuntu-24.04-arm, python-version: "3.14"}
-        - {os: windows-latest,   python-version: "3.14"}
-        - {os: windows-11-arm,   python-version: "3.14"}
+        - {os: macos-26-intel,   python-version: "3.15"}
+        - {os: macos-26,         python-version: "3.15"}
+        - {os: ubuntu-24.04-arm, python-version: "3.15"}
+        - {os: windows-latest,   python-version: "3.15"}
+        - {os: windows-11-arm,   python-version: "3.15"}
 
   test-wheels:
     name: Test wheels
@@ -118,7 +118,7 @@ jobs:
         submodules: recursive
     - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
       with:
-        python-version: "3.14"
+        python-version: "3.15"
     - uses: hendrikmuhs/ccache-action@f09c25b45002a07be2955cbe52e8cee55643f89d # v1.2.24
       with:
         key: ${{ matrix.os }}-supercollider
@@ -135,7 +135,7 @@ jobs:
     - name: List wheels
       run: ls -l dist/
     - name: Install wheel
-      run: pip install ./dist/*cp314*
+      run: pip install ./dist/*cp315*
       shell: bash
     - name: Install pytest
       run: pip install pytest pytest-cov
